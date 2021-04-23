@@ -2,6 +2,7 @@ import React from "react";
 import App from "next/app";
 import Head from "next/head";
 import { ThemeProvider } from "@material-ui/styles";
+import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import theme from "../theme";
 import "../styles/globals.css";
@@ -36,7 +37,9 @@ class MyApp extends App {
         </Head>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <Component {...pageProps} />
+          <StyledThemeProvider>
+            <Component {...pageProps} />
+          </StyledThemeProvider>
         </ThemeProvider>
       </React.Fragment>
     );

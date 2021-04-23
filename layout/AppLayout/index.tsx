@@ -1,12 +1,14 @@
 import React from "react";
 import Loading from "../../components/Util/GlobalLoader";
 
-interface AppLayoutProps {}
+interface AppLayoutProps {
+  isGlobalLoading: boolean;
+}
 
-const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
+const AppLayout: React.FC<AppLayoutProps> = ({ children, isGlobalLoading }) => {
   return (
     <div>
-      <Loading isLoading={true} />
+      <Loading isLoading={isGlobalLoading} />
       {children}
     </div>
   );
