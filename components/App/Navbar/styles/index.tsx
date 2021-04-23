@@ -82,13 +82,14 @@ interface NavbarLayoutProps extends NavbarProps {}
 
 const NavbarLayout: React.FC<NavbarLayoutProps> = ({
   children,
+  toggleDrawer,
   anchored = false,
 }) => {
   return (
     <Root>
       <ContainerMain>
         <BurguerMenuContainer>
-          <SvgIcon component={Menu} />
+          <SvgIcon onClick={() => toggleDrawer(true)} component={Menu} />
         </BurguerMenuContainer>
         <LogoContainer>
           <img src="/logo.svg" alt="Logotipo - Munay Cartas Contempladas" />

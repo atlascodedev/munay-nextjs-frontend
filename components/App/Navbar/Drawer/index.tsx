@@ -18,14 +18,27 @@ interface Props {
   toggleDrawer: (open: boolean) => void;
   logo: string;
   sidebarItems: MenuItem[];
+  backgroundColor?: boolean;
 }
 
-const LayoutDrawerImageContainer = styled.div`
+interface LayoutDrawerImageContainerProps {
+  backgroundColor?: boolean;
+}
+
+const DrawerRoot = styled.div`
+  .logoItem {
+    padding: 0px !important;
+  }
+`;
+
+const LayoutDrawerImageContainer = styled.div<LayoutDrawerImageContainerProps>`
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
+  background-color: ${(props) =>
+    props.backgroundColor ? props.theme.palette.primary.main : "#fff"};
 
   img {
     width: 75%;
@@ -33,21 +46,37 @@ const LayoutDrawerImageContainer = styled.div`
     height: 75%;
     max-width: 200px;
     max-height: auto;
+    padding-top: 23px;
+    padding-bottom: 23px;
+  }
+
+  @media (min-width: 1024px) {
+    img {
+      height: 100%;
+      width: 100%;
+      padding: 33px 33px;
+    }
   }
 `;
 
-const LayoutDrawer = ({ open, toggleDrawer, logo, sidebarItems }: Props) => {
+const LayoutDrawer = ({
+  open,
+  toggleDrawer,
+  logo,
+  sidebarItems,
+  backgroundColor,
+}: Props) => {
   return (
-    <div>
+    <DrawerRoot>
       <SwipeableDrawer
         onClose={() => toggleDrawer(false)}
         onOpen={() => toggleDrawer(true)}
         open={open}
         anchor="left"
       >
-        <List style={{ color: "#5d6d7c" }}>
-          <ListItem divider>
-            <LayoutDrawerImageContainer>
+        <List style={{ padding: "0px" }}>
+          <ListItem style={{ padding: "0px" }} divider>
+            <LayoutDrawerImageContainer backgroundColor={backgroundColor}>
               <img src={logo} alt="Logo" />
             </LayoutDrawerImageContainer>
           </ListItem>
@@ -77,7 +106,7 @@ const LayoutDrawer = ({ open, toggleDrawer, logo, sidebarItems }: Props) => {
           })}
         </List>
       </SwipeableDrawer>
-    </div>
+    </DrawerRoot>
   );
 };
 

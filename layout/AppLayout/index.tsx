@@ -8,15 +8,24 @@ interface AppLayoutProps {
 }
 
 const AppLayout: React.FC<AppLayoutProps> = ({ children, isGlobalLoading }) => {
+  const [drawerVisibility, setDrawerVisibility] = React.useState<boolean>(
+    false
+  );
+
+  const toggleDrawerVisibility = (open: boolean) => {
+    setDrawerVisibility(open);
+  };
+
   return (
     <div>
       <LayoutDrawer
+        backgroundColor
         logo="/logo.svg"
-        open={true}
-        toggleDrawer={() => console.log("test")}
+        open={drawerVisibility}
+        toggleDrawer={toggleDrawerVisibility}
         sidebarItems={[]}
       />
-      <Navbar />
+      <Navbar toggleDrawer={toggleDrawerVisibility} />
       <Loading isLoading={isGlobalLoading} />
       {children}
     </div>
