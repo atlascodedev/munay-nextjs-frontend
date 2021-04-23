@@ -4,9 +4,8 @@ import Head from "next/head";
 import { ThemeProvider } from "@material-ui/styles";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import theme from "../theme";
+import theme, { styledTheme } from "../theme";
 import "../styles/globals.css";
-import { WorkTwoTone } from "@material-ui/icons";
 require("swiper/swiper.min.css");
 require("swiper/components/navigation/navigation.min.css");
 require("swiper/components/pagination/pagination.min.css");
@@ -37,7 +36,7 @@ class MyApp extends App {
         </Head>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <StyledThemeProvider>
+          <StyledThemeProvider theme={styledTheme}>
             <Component {...pageProps} />
           </StyledThemeProvider>
         </ThemeProvider>

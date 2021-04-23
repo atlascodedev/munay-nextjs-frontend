@@ -6,6 +6,7 @@ import {
   SimplePaletteColorOptions,
 } from "@material-ui/core";
 import { TypographyOptions } from "@material-ui/core/styles/createTypography";
+import { StyledTheme } from "styled-components";
 
 const theme = createMuiTheme({
   palette: {
@@ -31,10 +32,7 @@ const theme = createMuiTheme({
 
 export default theme;
 
-export const styledTheme: Pick<
-  ThemeOptions,
-  "palette" | "spacing" | "zIndex" | "breakpoints" | "typography"
-> = {
+export const styledTheme: StyledTheme = {
   palette: {
     primary: {
       main: "#004B51",
