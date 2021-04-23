@@ -8,11 +8,11 @@ export interface MenuItem {
 }
 
 export interface NavigableComponent extends MenuItem {
-  navigableComponent: JSX.Element | null;
+  component: JSX.Element | null;
 }
 
 const useLandingPage = (
-  menuItems: MenuItem[],
+  menuItems: NavigableComponent[],
   deps?: any[]
 ): { navigableList: JSX.Element[]; menuList: MenuItem[] } => {
   const [navigables, setNavigables] = React.useState<JSX.Element[]>([]);
@@ -31,17 +31,25 @@ const useLandingPage = (
         hidden: menuItemIterable.hidden ? true : false,
       };
 
-      let navigableTemp: JSX.Element = <div></div>;
+      let navigableTempSingle: JSX.Element = <div></div>;
 
       let menuID: string = convertToSlug(menuItemIterable.label);
 
-      navigableTemp = (
+      navigableTempSingle = (
         <div ref={menuItemIterable.ref} id={menuID}>
-          heaad
+          {menuItemIterable.component ? menuItemIterable.component : null}
         </div>
       );
+
+      navigablesTemp.push(navigableTempSingle);
+      menuItemListTemp.push(menuItemTemp);
     }
+
+    setNavigables(navigablesTemp);
+    setMenuItemsList(menuItemListTemp);
   }, [deps ? deps : null]);
 
   return { navigableList: navigables, menuList: menuItemList };
 };
+
+export default useLandingPage;
