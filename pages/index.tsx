@@ -2,11 +2,12 @@ import Head from "next/head";
 import React from "react";
 import Advantages from "../components/App/Advantages/Main";
 import Posts from "../components/App/BlogList/Main";
+import Contact from "../components/App/Contact/Main";
 import DefenseSection from "../components/App/DefenseSection/Main";
 import Hero from "../components/App/Hero/Main";
 import PromotionSection from "../components/App/PromotionSection/Main";
 import Testimonials from "../components/App/Testimonials/Main";
-import useLandingPage from "../hooks/useLandingPage";
+import useLandingPage from "../hooks/useLandingPage/useLandingPage";
 import AppLayout from "../layout/AppLayout";
 import styles from "../styles/Home.module.css";
 
@@ -53,6 +54,13 @@ export default function Home() {
     {
       label: "Blog",
       component: <Posts blogPosts={[]} />,
+      ref: null,
+      hidden: false,
+    },
+
+    {
+      label: "Contato",
+      component: <Contact loadingFn={() => console.log("loading")} />,
       ref: null,
       hidden: false,
     },

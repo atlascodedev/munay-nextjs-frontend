@@ -1,5 +1,5 @@
 import React from "react";
-import convertToSlug from "../helper/convertToSlug";
+import convertToSlug from "../../helper/convertToSlug";
 
 export interface MenuItem {
   label: string;
