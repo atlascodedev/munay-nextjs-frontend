@@ -25,7 +25,7 @@ const Title = styled.div`
   width: 100%;
   display: flex;
   font-style: normal;
-  font-weight: 500;
+  font-weight: bold;
   justify-content: center;
   line-height: 53px;
   text-align: center;

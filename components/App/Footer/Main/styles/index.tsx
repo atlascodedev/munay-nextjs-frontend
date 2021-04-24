@@ -1,6 +1,7 @@
-import { SvgIcon, TextField } from "@material-ui/core";
-import { Facebook, Instagram, WhatsApp } from "@material-ui/icons";
+import { SvgIcon } from "@material-ui/core";
+import { Instagram, WhatsApp } from "@material-ui/icons";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 const FooterRoot = styled.div`
   width: 100%;
@@ -101,7 +102,7 @@ const FooterBottomContainer = styled.div`
   }
 `;
 
-const FooterSocialIconContainer = styled.div`
+const FooterSocialIconContainer = styled(motion.div)`
   width: 45px;
   height: 45px;
   background-color: ${(props) => props.theme.palette.primary.dark};
@@ -112,6 +113,10 @@ const FooterSocialIconContainer = styled.div`
   margin-left: 15px;
   margin-right: 15px;
   cursor: pointer;
+
+  :hover {
+    background-color: ${(props) => props.theme.palette.secondary.main};
+  }
 
   .MuiSvgIcon-root {
     fill: #fff;
@@ -142,13 +147,19 @@ const FooterLayout = ({}: FooterLayoutProps) => {
               </div>
             </FooterUpperContactPartnershipContainer> */}
             <FooterUpperSocialContainer>
-              <FooterSocialIconContainer>
+              <FooterSocialIconContainer
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
                 <SvgIcon component={Instagram} />
               </FooterSocialIconContainer>
               {/* <FooterSocialIconContainer>
                 <SvgIcon component={Facebook} />
               </FooterSocialIconContainer> */}
-              <FooterSocialIconContainer>
+              <FooterSocialIconContainer
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
                 <SvgIcon component={WhatsApp} />
               </FooterSocialIconContainer>
             </FooterUpperSocialContainer>

@@ -14,6 +14,7 @@ const Root = styled(motion.div)`
   height: 72px;
   background: ${(props) => props.theme.palette.primary.light};
   border-radius: 0px 10px 10px 0px;
+  cursor: pointer;
 `;
 
 const Container = styled(motion.div)`
