@@ -47,6 +47,12 @@ export const styledTheme: StyledTheme = {
       dark: "#C77C02",
       contrastText: "#333",
     },
+
+    background: {
+      light: "#e5e5e5",
+      main: "#F2F5F7",
+      secondary: "#fff",
+    },
   },
 
   typography: {

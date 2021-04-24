@@ -17,6 +17,12 @@ declare module "styled-components" {
         dark: string;
         contrastText: string;
       };
+
+      background: {
+        main: string;
+        light: string;
+        secondary: string;
+      };
     };
 
     typography: {
