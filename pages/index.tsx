@@ -1,6 +1,7 @@
 import Head from "next/head";
 import React from "react";
 import Advantages from "../components/App/Advantages/Main";
+import Posts from "../components/App/BlogList/Main";
 import DefenseSection from "../components/App/DefenseSection/Main";
 import Hero from "../components/App/Hero/Main";
 import PromotionSection from "../components/App/PromotionSection/Main";
@@ -45,6 +46,13 @@ export default function Home() {
     {
       label: "Depoimentos",
       component: <Testimonials />,
+      ref: null,
+      hidden: false,
+    },
+
+    {
+      label: "Blog",
+      component: <Posts blogPosts={[]} />,
       ref: null,
       hidden: false,
     },

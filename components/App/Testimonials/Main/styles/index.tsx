@@ -141,9 +141,8 @@ const SliderNavigationContainer = styled.div`
   bottom: 5px;
   z-index: 900;
 
-
   @media (min-width: 1024px) {
-      bottom: 0;
+    bottom: 0;
   }
 `;
 
