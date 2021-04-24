@@ -3,6 +3,7 @@ import Footer from "../../components/App/Footer/Main";
 import LayoutDrawer from "../../components/App/Navbar/Drawer";
 import Navbar from "../../components/App/Navbar/Main";
 import { Anchor } from "../../components/App/Navbar/Main/styles";
+import WhatsAppButton from "../../components/App/WhatsAppButton/Main";
 import Loading from "../../components/Util/GlobalLoader";
 
 interface AppLayoutProps {
@@ -27,12 +28,14 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children, isGlobalLoading }) => {
         toggleDrawer={toggleDrawerVisibility}
         sidebarItems={[]}
       />
+
       <Navbar toggleDrawer={toggleDrawerVisibility} />
       <Anchor anchored={true} />
 
       <Loading isLoading={isGlobalLoading} />
       {children}
 
+      <WhatsAppButton />
       <Footer />
     </div>
   );
