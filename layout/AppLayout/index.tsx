@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../../components/App/Footer/Main";
 import LayoutDrawer from "../../components/App/Navbar/Drawer";
 import Navbar from "../../components/App/Navbar/Main";
 import { Anchor } from "../../components/App/Navbar/Main/styles";
@@ -31,6 +32,8 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children, isGlobalLoading }) => {
 
       <Loading isLoading={isGlobalLoading} />
       {children}
+
+      <Footer />
     </div>
   );
 };
