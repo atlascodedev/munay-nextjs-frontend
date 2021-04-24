@@ -35,11 +35,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html
-        style={{ overflow: "hidden", overflowX: "hidden" }}
-        lang="pt-br"
-        dir="ltr"
-      >
+      <Html lang="pt-br" dir="ltr">
         <Head>
           <meta charSet="utf-8" />
           <link

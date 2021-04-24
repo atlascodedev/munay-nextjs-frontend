@@ -2,6 +2,7 @@ import Head from "next/head";
 import React from "react";
 import DefenseSection from "../components/App/DefenseSection/Main";
 import Hero from "../components/App/Hero/Main";
+import PromotionSection from "../components/App/PromotionSection/Main";
 import useLandingPage from "../hooks/useLandingPage";
 import AppLayout from "../layout/AppLayout";
 import styles from "../styles/Home.module.css";
@@ -22,6 +23,12 @@ export default function Home() {
     {
       label: "Defense section",
       component: <DefenseSection />,
+      ref: null,
+      hidden: false,
+    },
+    {
+      label: "Promotional section",
+      component: <PromotionSection />,
       ref: null,
       hidden: false,
     },
