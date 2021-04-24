@@ -10,6 +10,7 @@ const Root = styled.div`
   width: 100%;
   position: fixed;
   top: 0;
+  z-index: 5000;
   left: 0;
   height: ${navbarMobileHeight + "px"};
   background-color: ${(props) => props.theme.palette.primary.main};

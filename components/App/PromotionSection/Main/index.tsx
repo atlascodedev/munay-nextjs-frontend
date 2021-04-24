@@ -1,9 +1,10 @@
 import React from "react";
+import PromotionSectionLayout from "./styles";
 
 interface PromotionSectionProps {}
 
-const PromotionSection = (props: PromotionSectionProps) => {
-  return <div></div>;
+const PromotionSection = ({}: PromotionSectionProps) => {
+  return <PromotionSectionLayout></PromotionSectionLayout>;
 };
 
 export default PromotionSection;

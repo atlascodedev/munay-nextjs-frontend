@@ -150,7 +150,7 @@ const HeroLayout = ({}: HeroLayoutProps) => {
         </MainContainer>
         <ImageContainer>
           <img
-            src="https://firebasestorage.googleapis.com/v0/b/munay-nextjs-hefesto.appspot.com/o/adonis%2Fgallery%2F1-7.webp?alt=media"
+            src="https://firebasestorage.googleapis.com/v0/b/munay-nextjs-hefesto.appspot.com/o/adonis%2Fgallery%2F1-8.webp?alt=media"
             alt="Mulher jovem feliz olhando para o celular"
           />
         </ImageContainer>
