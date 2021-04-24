@@ -36,7 +36,7 @@ export const styledTheme: StyledTheme = {
   palette: {
     primary: {
       main: "#004B51",
-      light: "#134F54",
+      light: "#0B777D",
       dark: "#033336",
       contrastText: "#fff",
     },

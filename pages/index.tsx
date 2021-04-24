@@ -4,6 +4,7 @@ import Advantages from "../components/App/Advantages/Main";
 import DefenseSection from "../components/App/DefenseSection/Main";
 import Hero from "../components/App/Hero/Main";
 import PromotionSection from "../components/App/PromotionSection/Main";
+import Testimonials from "../components/App/Testimonials/Main";
 import useLandingPage from "../hooks/useLandingPage";
 import AppLayout from "../layout/AppLayout";
 import styles from "../styles/Home.module.css";
@@ -38,7 +39,14 @@ export default function Home() {
       label: "Advantages",
       component: <Advantages />,
       ref: null,
-      hidden: false,  
+      hidden: false,
+    },
+
+    {
+      label: "Depoimentos",
+      component: <Testimonials />,
+      ref: null,
+      hidden: false,
     },
   ]);
 

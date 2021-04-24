@@ -139,6 +139,7 @@ const DefenseSectionLayout = ({}: DefenseSectionLayoutProps) => {
                 {defenseCards.map((cardValue, index: number) => {
                   return (
                     <motion.div
+                      key={index}
                       initial="hidden"
                       variants={{
                         visible: { opacity: 1, x: 0 },
@@ -149,11 +150,7 @@ const DefenseSectionLayout = ({}: DefenseSectionLayoutProps) => {
                         delay: index * 0.2,
                       }}
                     >
-                      <Card
-                        key={index}
-                        text={cardValue.text}
-                        title={cardValue.title}
-                      />
+                      <Card text={cardValue.text} title={cardValue.title} />
                     </motion.div>
                   );
                 })}

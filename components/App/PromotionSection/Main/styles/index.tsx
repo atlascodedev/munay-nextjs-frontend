@@ -155,7 +155,7 @@ const PromotionSectionLayout = ({}: PromotionSectionLayoutProps) => {
                     hidden: { opacity: 0 },
                   }}
                   animate={inView ? "visible" : "hidden"}
-                  transition={{ delay: 1, duration: 1.5 }}
+                  transition={{ delay: 1.5, duration: 0.5 }}
                 >
                   <Text>
                     O consórcio de serviços permite que você faça tudo o que

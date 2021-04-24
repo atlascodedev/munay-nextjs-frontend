@@ -148,7 +148,10 @@ interface AdvantagesLayoutProps {}
 
 const AdvantagesLayout = ({}: AdvantagesLayoutProps) => {
   return (
-    <InView triggerOnce={false} threshold={0.6}>
+    <InView
+      triggerOnce={false}
+      threshold={global.window && global.window.innerWidth > 1024 ? 0.6 : 0}
+    >
       {({ entry, inView, ref }) => {
         return (
           <Root ref={ref}>
