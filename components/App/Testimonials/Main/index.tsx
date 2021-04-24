@@ -18,6 +18,10 @@ const Testimonials = (props: TestimonialsProps) => {
   return (
     <TestimonialsLayout>
       <Swiper
+        navigation={{
+          nextEl: ".testimonial-forward",
+          prevEl: ".testimonial-back",
+        }}
         id="swiper-testimonials"
         slidesPerView={1}
         spaceBetween={20}
@@ -25,6 +29,11 @@ const Testimonials = (props: TestimonialsProps) => {
           1024: {
             slidesPerView: 1.5,
             spaceBetween: 40,
+            centeredSlides: true,
+          },
+          1600: {
+            slidesPerView: 1.8,
+            spaceBetween: 0,
             centeredSlides: true,
           },
         }}

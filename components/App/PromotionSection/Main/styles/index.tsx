@@ -24,8 +24,6 @@ const Container = styled.div`
 `;
 
 const PicturesMainContainer = styled.div`
-  position: relative;
-
   img {
     width: 100%;
     height: 100%;
@@ -94,13 +92,11 @@ const PromotionSectionLayout = ({}: PromotionSectionLayoutProps) => {
                 variants={{
                   visible: {
                     opacity: 1,
-                    translateX: 0,
-                    translateY: 0,
+                    x: 0,
                   },
                   hidden: {
                     opacity: 0,
-                    translateX: "-20%",
-                    translateY: "10%",
+                    x: 20,
                   },
                 }}
               >

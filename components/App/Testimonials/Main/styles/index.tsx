@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { SvgIcon } from "@material-ui/core";
+import { ArrowForward, ArrowLeft } from "@material-ui/icons";
 
 const Root = styled.div`
   width: 100%;
@@ -37,7 +39,8 @@ const Title = styled.div`
 const SliderContainer = styled.div`
   height: auto;
   width: 100%;
-  margin: 5% 0px;
+  margin: 0px 0px;
+  position: relative;
 `;
 
 const CardRoot = styled.div`
@@ -58,6 +61,10 @@ const CardRoot = styled.div`
     height: auto;
     padding: 60px;
     margin: 0px;
+  }
+
+  @media (min-width: 1600px) {
+    max-width: 750px;
   }
 `;
 
@@ -124,6 +131,45 @@ interface TestimonialCardProps {
   location: string;
 }
 
+const SliderNavigationContainer = styled.div`
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  bottom: 5px;
+  z-index: 900;
+
+
+  @media (min-width: 1024px) {
+      bottom: 0;
+  }
+`;
+
+const SliderNavigationButtonRoot = styled.div`
+  width: 51.03px;
+  height: 51.03px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin: 0px 20px;
+
+  background: ${(props) => props.theme.palette.secondary.main};
+  border-radius: 50%;
+
+  @media (min-width: 1024px) {
+    width: 50.27px;
+    height: 50.27px;
+  }
+
+  .MuiSvgIcon-root {
+    fill: ${(props) => props.theme.palette.secondary.contrastText};
+    font-size: 1.85rem;
+  }
+`;
+
 export const TestimonialCard = ({
   imageURL = "https://via.placeholder.com/750",
   location,
@@ -160,7 +206,41 @@ const TestimonialsLayout: React.FC<TestimonialsLayoutProps> = ({
     <Root>
       <Container>
         <Title>Depoimentos de quem investe.</Title>
-        <SliderContainer>{children}</SliderContainer>
+        <SliderContainer>
+          {children}
+
+          <SliderNavigationContainer>
+            <motion.div
+              className="testimonial-back"
+              variants={{
+                hover: { scale: 1.1 },
+                tap: { scale: 0.9 },
+              }}
+              whileTap="tap"
+              whileHover="hover"
+            >
+              <SliderNavigationButtonRoot>
+                <SvgIcon
+                  component={ArrowForward}
+                  style={{ transform: "rotate(180deg)" }}
+                />
+              </SliderNavigationButtonRoot>
+            </motion.div>
+            <motion.div
+              className="testimonial-forward"
+              variants={{
+                hover: { scale: 1.1 },
+                tap: { scale: 0.9 },
+              }}
+              whileTap="tap"
+              whileHover="hover"
+            >
+              <SliderNavigationButtonRoot>
+                <SvgIcon component={ArrowForward} />
+              </SliderNavigationButtonRoot>
+            </motion.div>
+          </SliderNavigationContainer>
+        </SliderContainer>
       </Container>
     </Root>
   );
