@@ -61,6 +61,7 @@ const CardRoot = styled.div`
     height: auto;
     padding: 60px;
     margin: 0px;
+    max-width: 650px;
   }
 
   @media (min-width: 1600px) {
