@@ -23,7 +23,7 @@ interface AnchorProps {
   anchored?: boolean;
 }
 
-const Anchor = styled.div<AnchorProps>`
+export const Anchor = styled.div<AnchorProps>`
   width: 100%;
   visibility: hidden;
   top: 0;
@@ -83,7 +83,6 @@ interface NavbarLayoutProps extends NavbarProps {}
 const NavbarLayout: React.FC<NavbarLayoutProps> = ({
   children,
   toggleDrawer,
-  anchored = false,
 }) => {
   return (
     <Root>
@@ -95,8 +94,6 @@ const NavbarLayout: React.FC<NavbarLayoutProps> = ({
           <img src="/logo.svg" alt="Logotipo - Munay Cartas Contempladas" />
         </LogoContainer>
       </ContainerMain>
-
-      <Anchor anchored={anchored} />
     </Root>
   );
 };

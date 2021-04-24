@@ -74,7 +74,7 @@ const LayoutDrawer = ({
         open={open}
         anchor="left"
       >
-        <List style={{ padding: "0px" }}>
+        <List disablePadding>
           <ListItem style={{ padding: "0px" }} divider>
             <LayoutDrawerImageContainer backgroundColor={backgroundColor}>
               <img src={logo} alt="Logo" />

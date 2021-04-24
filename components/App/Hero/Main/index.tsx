@@ -1,15 +1,10 @@
-import React from 'react'
+import React from "react";
+import HeroLayout from "../styles";
 
-interface HeroProps {
-    
-}
+export interface HeroProps {}
 
-const Hero: React.FC<HeroProps> = ({children}) => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+const Hero: React.FC<HeroProps> = ({ children }) => {
+  return <HeroLayout></HeroLayout>;
+};
 
-export default Hero
+export default Hero;
