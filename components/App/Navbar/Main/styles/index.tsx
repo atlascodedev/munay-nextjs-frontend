@@ -1,7 +1,7 @@
 import { SvgIcon } from "@material-ui/core";
 import { Menu } from "@material-ui/icons";
 import styled, { StyledTheme } from "styled-components";
-import { NavbarProps } from "../Main";
+import { NavbarProps } from "..";
 
 const navbarMobileHeight: number = 70;
 const navbarDesktopHeight: number = 96;
@@ -10,7 +10,7 @@ const Root = styled.div`
   width: 100%;
   position: fixed;
   top: 0;
-  z-index: 5000;
+  z-index: 1100;
   left: 0;
   height: ${navbarMobileHeight + "px"};
   background-color: ${(props) => props.theme.palette.primary.main};

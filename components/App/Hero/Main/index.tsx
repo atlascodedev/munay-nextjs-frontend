@@ -1,5 +1,5 @@
 import React from "react";
-import HeroLayout from "../styles";
+import HeroLayout from "./styles";
 
 export interface HeroProps {}
 

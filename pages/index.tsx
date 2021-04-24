@@ -1,5 +1,6 @@
 import Head from "next/head";
 import React from "react";
+import Advantages from "../components/App/Advantages/Main";
 import DefenseSection from "../components/App/DefenseSection/Main";
 import Hero from "../components/App/Hero/Main";
 import PromotionSection from "../components/App/PromotionSection/Main";
@@ -31,6 +32,13 @@ export default function Home() {
       component: <PromotionSection />,
       ref: null,
       hidden: false,
+    },
+
+    {
+      label: "Advantages",
+      component: <Advantages />,
+      ref: null,
+      hidden: false,  
     },
   ]);
 

@@ -2,7 +2,7 @@ import { SvgIcon, SvgIconTypeMap } from "@material-ui/core";
 import { OverridableComponent } from "@material-ui/core/OverridableComponent";
 import { DriveEta, Home, Motorcycle, PersonAdd } from "@material-ui/icons";
 import styled from "styled-components";
-import { HeroProps } from "../Main";
+import { HeroProps } from "..";
 
 const Root = styled.div`
   width: 100%;

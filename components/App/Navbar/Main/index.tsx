@@ -1,5 +1,5 @@
 import React from "react";
-import NavbarLayout from "../styles";
+import NavbarLayout from "./styles";
 
 export interface NavbarProps {
   toggleDrawer?: (open: boolean) => void;

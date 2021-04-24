@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+import InView from "react-intersection-observer";
 import styled from "styled-components";
 
 const Root = styled.div`
@@ -124,21 +126,43 @@ const defenseCards: CardProps[] = [
 
 const DefenseSectionLayout = ({}: DefenseSectionLayoutProps) => {
   return (
-    <Root>
-      <Container>
-        <Title>
-          Entenda <span> como funcionam </span> os consórcios.
-        </Title>
+    <InView triggerOnce={false}>
+      {({ entry, inView, ref }) => {
+        return (
+          <Root ref={ref}>
+            <Container>
+              <Title>
+                Entenda <span> como funcionam </span> os consórcios.
+              </Title>
 
-        <CardContainer>
-          {defenseCards.map((cardValue, index: number) => {
-            return (
-              <Card key={index} text={cardValue.text} title={cardValue.title} />
-            );
-          })}
-        </CardContainer>
-      </Container>
-    </Root>
+              <CardContainer>
+                {defenseCards.map((cardValue, index: number) => {
+                  return (
+                    <motion.div
+                      initial="hidden"
+                      variants={{
+                        visible: { opacity: 1, x: 0 },
+                        hidden: { opacity: 0, x: 150 },
+                      }}
+                      animate={inView ? "visible" : "hidden"}
+                      transition={{
+                        delay: index * 0.2,
+                      }}
+                    >
+                      <Card
+                        key={index}
+                        text={cardValue.text}
+                        title={cardValue.title}
+                      />
+                    </motion.div>
+                  );
+                })}
+              </CardContainer>
+            </Container>
+          </Root>
+        );
+      }}
+    </InView>
   );
 };
 
