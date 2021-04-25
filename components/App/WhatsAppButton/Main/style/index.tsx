@@ -11,7 +11,6 @@ const Root = styled(motion.div)`
   left: 0;
   width: auto;
   color: ${(props) => props.theme.palette.primary.contrastText};
-  height: 72px;
   background: ${(props) => props.theme.palette.primary.light};
   border-radius: 0px 10px 10px 0px;
   cursor: pointer;
@@ -20,6 +19,7 @@ const Root = styled(motion.div)`
 const Container = styled(motion.div)`
   display: flex;
   height: 100%;
+  padding: 10px 0px;
 `;
 
 const Title = styled(motion.div)`

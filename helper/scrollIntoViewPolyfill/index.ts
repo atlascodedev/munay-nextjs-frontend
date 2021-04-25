@@ -6,7 +6,7 @@ const nativeSmoothScrollTo = (elem: HTMLElement) => {
   });
 };
 
-const smoothScrollTo = (to: number, duration: number) => {
+export const smoothScrollTo = (to: number, duration: number) => {
   const element =
       global.window.document.scrollingElement ||
       global.window.document.documentElement,

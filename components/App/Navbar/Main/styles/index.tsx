@@ -2,6 +2,7 @@ import { SvgIcon } from "@material-ui/core";
 import { Menu } from "@material-ui/icons";
 import styled, { StyledTheme } from "styled-components";
 import { NavbarProps } from "..";
+import returnHome from "../../../../../helper/returnHome";
 
 const navbarMobileHeight: number = 70;
 const navbarDesktopHeight: number = 96;
@@ -91,7 +92,7 @@ const NavbarLayout: React.FC<NavbarLayoutProps> = ({
         <BurguerMenuContainer>
           <SvgIcon onClick={() => toggleDrawer(true)} component={Menu} />
         </BurguerMenuContainer>
-        <LogoContainer>
+        <LogoContainer onClick={returnHome}>
           <img src="/logo.svg" alt="Logotipo - Munay Cartas Contempladas" />
         </LogoContainer>
       </ContainerMain>

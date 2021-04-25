@@ -1,4 +1,5 @@
 import { motion, motionValue } from "framer-motion";
+import InView from "react-intersection-observer";
 import styled from "styled-components";
 import AdonisImage from "../../../../Util/AdonisImage";
 
@@ -36,7 +37,7 @@ const ContactInnerFormContainer = styled.div`
   }
 `;
 
-const ContactInnerImageContainer = styled.div`
+const ContactInnerImageContainer = styled(motion.div)`
   position: relative;
   display: none;
 
@@ -111,32 +112,37 @@ const ContactLayoutContainer = ({
   children,
 }: ContactLayoutContainerProps) => {
   return (
-    <ContactRoot>
-      <ContactInnerContainer>
-        <ContactInnerImageContainer>
-          <img
-            style={{
-              objectFit: "cover",
-              width: "100%",
-              height: "100%",
-              position: "absolute",
-            }}
-            src={imageURL}
-            alt="Senhora sorrindo ao utilizar celular"
-          />
-          {/* <ContactInnerImageTextContainer>
-            <ContactInnerImageTextTitle>
-              Invista nos seus sonhos.
-            </ContactInnerImageTextTitle>
-            <ContactInnerImageTextAux>
-              Permita que a Portal Bens aproxime você dos seus objetivos.
-            </ContactInnerImageTextAux>
-          </ContactInnerImageTextContainer> */}
-        </ContactInnerImageContainer>
+    <InView triggerOnce={true} threshold={0.5}>
+      {({ entry, inView, ref }) => {
+        return (
+          <ContactRoot ref={ref}>
+            <ContactInnerContainer>
+              <ContactInnerImageContainer
+                initial="hidden"
+                animate={inView ? "visible" : "hidden"}
+                variants={{
+                  visible: { opacity: 1, x: 0 },
+                  hidden: { opacity: 0, x: 100 },
+                }}
+              >
+                <img
+                  style={{
+                    objectFit: "cover",
+                    width: "100%",
+                    height: "100%",
+                    position: "absolute",
+                  }}
+                  src={imageURL}
+                  alt="Senhora sorrindo ao utilizar celular"
+                />
+              </ContactInnerImageContainer>
 
-        <ContactInnerFormContainer>{children}</ContactInnerFormContainer>
-      </ContactInnerContainer>
-    </ContactRoot>
+              <ContactInnerFormContainer>{children}</ContactInnerFormContainer>
+            </ContactInnerContainer>
+          </ContactRoot>
+        );
+      }}
+    </InView>
   );
 };
 
