@@ -15,6 +15,7 @@ const Root = styled.div`
   left: 0;
   height: ${navbarMobileHeight + "px"};
   background-color: ${(props) => props.theme.palette.primary.main};
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.25);
 
   @media (min-width: 1024px) {
     height: ${navbarDesktopHeight + "px"};

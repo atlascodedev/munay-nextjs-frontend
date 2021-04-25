@@ -18,7 +18,17 @@ const Container = styled.div`
 
 const Loading = ({ isLoading }: Props) => {
   return (
-    <Fade in={isLoading} timeout={{ enter: 100, exit: 100 }}>
+    <Fade
+      style={{
+        zIndex: 9999,
+        width: "100%",
+        position: "fixed",
+        top: 0,
+        left: 0,
+      }}
+      in={isLoading}
+      timeout={{ enter: 100, exit: 100 }}
+    >
       <Container>
         <LinearProgress className="linearProgress" />
       </Container>
