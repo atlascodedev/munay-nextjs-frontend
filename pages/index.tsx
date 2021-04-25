@@ -44,14 +44,14 @@ export default function Home({
       label: "Hero",
       component: <Hero />,
       ref: null,
-      hidden: false,
+      hidden: true,
     },
 
     {
       label: "Defense section",
       component: <DefenseSection />,
       ref: null,
-      hidden: false,
+      hidden: true,
     },
     {
       label: "Promotional section",
@@ -59,21 +59,21 @@ export default function Home({
         <PromotionSection action={() => scrollIntoView("top", null)} />
       ),
       ref: promotionalSectionRef,
-      hidden: false,
+      hidden: true,
     },
 
     {
       label: "Advantages",
       component: <Advantages />,
       ref: null,
-      hidden: false,
+      hidden: true,
     },
 
     {
       label: "Depoimentos",
       component: <Testimonials />,
       ref: null,
-      hidden: false,
+      hidden: true,
     },
 
     {

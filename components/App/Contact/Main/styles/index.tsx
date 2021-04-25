@@ -48,6 +48,10 @@ const ContactInnerImageContainer = styled(motion.div)`
     order: 1;
     height: 100vh;
   }
+
+  @media (min-width: 1600px) {
+    height: 110vh;
+  } 
 `;
 
 const ContactInnerImage = styled.img`

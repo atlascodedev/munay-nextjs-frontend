@@ -6,16 +6,6 @@ const CHINESE_KOREAN_READ_TIME = 500; // cpm
 
 const IMAGE_TAGS = ["img", "Image"];
 
-function humanizeTime(time) {
-  if (time < 0.5) {
-    return "less than a minute";
-  }
-  if (time >= 0.5 && time < 1.5) {
-    return "1 minute";
-  }
-  return `${Math.ceil(time)} minutes`;
-}
-
 function imageCount(imageTags, string) {
   const combinedImageTags = imageTags.join("|");
   const pattern = `<(${combinedImageTags})([\\w\\W]+?)[\\/]?>`;
@@ -58,7 +48,6 @@ function wordsCount(string) {
   return (string.match(reg) || []).length;
 }
 
-// const wordTime = wordCount / wordsPerMin;
 const readingTime = (
   HTMLString: string
 ): { readTime: number; readTimeWithImages: number } => {

@@ -34,6 +34,7 @@ const ContactFormHeaderContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: bold;
 
   @media (min-width: 1024px) {
     font-size: 28px;

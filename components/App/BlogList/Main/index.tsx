@@ -298,7 +298,9 @@ const Posts = ({ blogPosts = [] }: Props) => {
                     <Link href={`/blog/${slug}`}>
                       <a>
                         <PostCardMain
-                          readTime={Math.floor(readingTime(blogPost).readTime).toString()}
+                          readTime={Math.floor(
+                            readingTime(blogPost).readTime
+                          ).toString()}
                           blogActive={blogActive}
                           blogTitle={blogTitle}
                           featuredImage={featuredImage}
