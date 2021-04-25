@@ -17,6 +17,7 @@ import Hero from "../components/App/Hero/Main";
 import Partners from "../components/App/Partners/Main";
 import PromotionSection from "../components/App/PromotionSection/Main";
 import Testimonials from "../components/App/Testimonials/Main";
+import readingTime from "../helper/readTime";
 import scrollIntoView from "../helper/scrollIntoView";
 import useLandingPage from "../hooks/useLandingPage/useLandingPage";
 import AppLayout from "../layout/AppLayout";
@@ -27,8 +28,6 @@ export default function Home({
   partners,
   testimonials,
 }: LandingProps) {
-  console.log(blog);
-
   const [globalLoadingState, setGlobalLoadingState] = React.useState<boolean>(
     false
   );

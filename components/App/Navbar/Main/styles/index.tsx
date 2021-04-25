@@ -93,31 +93,34 @@ const NavbarLayout: React.FC<NavbarLayoutProps> = ({
 
   return (
     <React.Fragment>
-          {hideOnScroll ? (
-             <Slide appear={false} direction="down" in={!scrollTrigger}>
-             <Root>
-               <ContainerMain>
-                 <BurguerMenuContainer>
-                   <SvgIcon onClick={() => toggleDrawer(true)} component={Menu} />
-                 </BurguerMenuContainer>
-                 <LogoContainer onClick={returnHome}>
-                   <img src="/logo.svg" alt="Logotipo - Munay Cartas Contempladas" />
-                 </LogoContainer>
-               </ContainerMain>
-             </Root>
-           </Slide>
-          ) : (
-            <Root>
-               <ContainerMain>
-                 <BurguerMenuContainer>
-                   <SvgIcon onClick={() => toggleDrawer(true)} component={Menu} />
-                 </BurguerMenuContainer>
-                 <LogoContainer onClick={returnHome}>
-                   <img src="/logo.svg" alt="Logotipo - Munay Cartas Contempladas" />
-                 </LogoContainer>
-               </ContainerMain>
-             </Root>
-          )}
+      {hideOnScroll ? (
+        <Slide appear={false} direction="down" in={!scrollTrigger}>
+          <Root>
+            <ContainerMain>
+              <BurguerMenuContainer>
+                <SvgIcon onClick={() => toggleDrawer(true)} component={Menu} />
+              </BurguerMenuContainer>
+              <LogoContainer onClick={returnHome}>
+                <img
+                  src="/logo.svg"
+                  alt="Logotipo - Munay Cartas Contempladas"
+                />
+              </LogoContainer>
+            </ContainerMain>
+          </Root>
+        </Slide>
+      ) : (
+        <Root>
+          <ContainerMain>
+            <BurguerMenuContainer>
+              <SvgIcon onClick={() => toggleDrawer(true)} component={Menu} />
+            </BurguerMenuContainer>
+            <LogoContainer onClick={returnHome}>
+              <img src="/logo.svg" alt="Logotipo - Munay Cartas Contempladas" />
+            </LogoContainer>
+          </ContainerMain>
+        </Root>
+      )}
     </React.Fragment>
   );
 };

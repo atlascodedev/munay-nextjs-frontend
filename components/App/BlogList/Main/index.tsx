@@ -10,6 +10,7 @@ import {
 import Link from "next/link";
 import { BlogPostType } from "../../../../@types";
 import converToSlug from "../../../../helper/convertToSlug";
+import readingTime from "../../../../helper/readTime";
 
 const PostListRoot = styled.div`
   padding-top: 5vh;
@@ -297,6 +298,7 @@ const Posts = ({ blogPosts = [] }: Props) => {
                     <Link href={`/blog/${slug}`}>
                       <a>
                         <PostCardMain
+                          readTime={Math.floor(readingTime(blogPost).readTime).toString()}
                           blogActive={blogActive}
                           blogTitle={blogTitle}
                           featuredImage={featuredImage}
