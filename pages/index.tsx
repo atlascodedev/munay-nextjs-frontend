@@ -17,6 +17,10 @@ export default function Home() {
     false
   );
 
+  const toggleGlobalLoading = (loading: boolean): void => {
+    setGlobalLoadingState(loading);
+  };
+
   const promotionalSectionRef = React.useRef<HTMLDivElement>(null);
   const heroRef = React.useRef<HTMLDivElement>(null);
 
@@ -66,7 +70,7 @@ export default function Home() {
 
     {
       label: "Contato",
-      component: <Contact loadingFn={() => console.log("loading")} />,
+      component: <Contact loadingFn={toggleGlobalLoading} />,
       ref: null,
       hidden: false,
     },
