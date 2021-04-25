@@ -274,8 +274,8 @@ const Posts = ({ blogPosts = [] }: Props) => {
     <div>
       {visiblePostList.length > 0 ? (
         <PostListRoot>
-          <PostListDetailOne src={"/images/detail-1.svg"} />
-          <PostListDetailTwo src="/images/detail-3.svg" />
+          {/* <PostListDetailOne src={"/images/detail-1.svg"} /> */}
+          {/* <PostListDetailTwo src="/images/detail-3.svg" /> */}
           <PostListSectionTitle>
             <div>Últimas postagens</div>
           </PostListSectionTitle>

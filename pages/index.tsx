@@ -1,5 +1,14 @@
+import axios, { AxiosResponse } from "axios";
+import { GetStaticProps } from "next";
 import Head from "next/head";
 import React from "react";
+import {
+  BlogPostType,
+  CardProduct,
+  LandingProps,
+  PartnerType,
+  TestimonialsType,
+} from "../@types";
 import Advantages from "../components/App/Advantages/Main";
 import Posts from "../components/App/BlogList/Main";
 import Contact from "../components/App/Contact/Main";
@@ -12,7 +21,14 @@ import scrollIntoView from "../helper/scrollIntoView";
 import useLandingPage from "../hooks/useLandingPage/useLandingPage";
 import AppLayout from "../layout/AppLayout";
 
-export default function Home() {
+export default function Home({
+  blog,
+  cards,
+  partners,
+  testimonials,
+}: LandingProps) {
+  console.log(blog);
+
   const [globalLoadingState, setGlobalLoadingState] = React.useState<boolean>(
     false
   );
@@ -63,7 +79,7 @@ export default function Home() {
 
     {
       label: "Blog",
-      component: <Posts blogPosts={[]} />,
+      component: <Posts blogPosts={blog} />,
       ref: null,
       hidden: false,
     },
@@ -98,3 +114,34 @@ export default function Home() {
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps<LandingProps> = async (context) => {
+  let testimonialsRequest: AxiosResponse<TestimonialsType[]> = await axios.get(
+    "https://us-central1-munay-nextjs-hefesto.cloudfunctions.net/api/collections/entries/testimonials"
+  );
+  let partnersRequest: AxiosResponse<PartnerType[]> = await axios.get(
+    "https://us-central1-munay-nextjs-hefesto.cloudfunctions.net/api/collections/entries/partners"
+  );
+  let blogRequest: AxiosResponse<BlogPostType[]> = await axios.get(
+    "https://us-central1-munay-nextjs-hefesto.cloudfunctions.net/api/collections/entries/portalBlog"
+  );
+
+  let cardsRequest: AxiosResponse<CardProduct[]> = await axios.get(
+    "https://us-central1-munay-nextjs-hefesto.cloudfunctions.net/api/collections/entries/cartas"
+  );
+
+  const testimonaislData: TestimonialsType[] = testimonialsRequest.data;
+
+  const partnersData: PartnerType[] = partnersRequest.data;
+  const blogData: BlogPostType[] = blogRequest.data;
+  const cardsData: CardProduct[] = cardsRequest.data;
+
+  return {
+    props: {
+      testimonials: testimonaislData,
+      blog: blogData,
+      partners: partnersData,
+      cards: cardsData,
+    },
+  };
+};
