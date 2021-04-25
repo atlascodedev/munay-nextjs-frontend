@@ -7,6 +7,8 @@ import DefenseSection from "../components/App/DefenseSection/Main";
 import Hero from "../components/App/Hero/Main";
 import PromotionSection from "../components/App/PromotionSection/Main";
 import Testimonials from "../components/App/Testimonials/Main";
+import convertToSlug from "../helper/convertToSlug";
+import scrollIntoView from "../helper/scrollIntoView";
 import useLandingPage from "../hooks/useLandingPage/useLandingPage";
 import AppLayout from "../layout/AppLayout";
 import styles from "../styles/Home.module.css";
@@ -15,6 +17,9 @@ export default function Home() {
   const [globalLoadingState, setGlobalLoadingState] = React.useState<boolean>(
     false
   );
+
+  const promotionalSectionRef = React.useRef<HTMLDivElement>(null);
+  const heroRef = React.useRef<HTMLDivElement>(null);
 
   const { menuList, navigableList } = useLandingPage([
     {
@@ -32,8 +37,10 @@ export default function Home() {
     },
     {
       label: "Promotional section",
-      component: <PromotionSection />,
-      ref: null,
+      component: (
+        <PromotionSection action={() => scrollIntoView("Hero", heroRef)} />
+      ),
+      ref: promotionalSectionRef,
       hidden: false,
     },
 
@@ -73,7 +80,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <AppLayout isGlobalLoading={globalLoadingState}>
+      <AppLayout items={menuList} isGlobalLoading={globalLoadingState}>
         {navigableList.map((Component, index) => {
           return <React.Fragment key={index}>{Component}</React.Fragment>;
         })}

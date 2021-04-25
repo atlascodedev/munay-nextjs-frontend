@@ -74,9 +74,11 @@ const Text = styled.div`
   }
 `;
 
-interface PromotionSectionLayoutProps {}
+export interface PromotionSectionLayoutProps {
+  action: (...args: any[]) => void;
+}
 
-const PromotionSectionLayout = ({}: PromotionSectionLayoutProps) => {
+const PromotionSectionLayout = ({ action }: PromotionSectionLayoutProps) => {
   return (
     <InView triggerOnce={false} threshold={0.3}>
       {({ entry, inView, ref }) => {
@@ -160,6 +162,7 @@ const PromotionSectionLayout = ({}: PromotionSectionLayoutProps) => {
                     plásticas. Saiba mais clicando abaixo ou fale conosco.
                   </Text>
                   <Button
+                    onClick={action}
                     style={{ color: "#fff" }}
                     color="secondary"
                     variant="contained"

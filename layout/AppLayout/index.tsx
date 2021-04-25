@@ -1,4 +1,5 @@
 import React from "react";
+import { MenuItem } from "../../@types";
 import Footer from "../../components/App/Footer/Main";
 import LayoutDrawer from "../../components/App/Navbar/Drawer";
 import Navbar from "../../components/App/Navbar/Main";
@@ -8,9 +9,14 @@ import Loading from "../../components/Util/GlobalLoader";
 
 interface AppLayoutProps {
   isGlobalLoading: boolean;
+  items: MenuItem[];
 }
 
-const AppLayout: React.FC<AppLayoutProps> = ({ children, isGlobalLoading }) => {
+const AppLayout: React.FC<AppLayoutProps> = ({
+  children,
+  isGlobalLoading,
+  items,
+}) => {
   const [drawerVisibility, setDrawerVisibility] = React.useState<boolean>(
     false
   );
@@ -26,7 +32,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children, isGlobalLoading }) => {
         logo="/logo.svg"
         open={drawerVisibility}
         toggleDrawer={toggleDrawerVisibility}
-        sidebarItems={[]}
+        sidebarItems={items}
       />
 
       <Navbar toggleDrawer={toggleDrawerVisibility} />

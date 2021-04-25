@@ -35,6 +35,8 @@ const useLandingPage = (
 
       let menuID: string = convertToSlug(menuItemIterable.label);
 
+      menuItemTemp.label = menuItemIterable.label;
+
       navigableTempSingle = (
         <div ref={menuItemIterable.ref} id={menuID}>
           {menuItemIterable.component ? menuItemIterable.component : null}

@@ -1,10 +1,10 @@
 import React from "react";
-import PromotionSectionLayout from "./styles";
+import PromotionSectionLayout, { PromotionSectionLayoutProps } from "./styles";
 
-interface PromotionSectionProps {}
+interface PromotionSectionProps extends PromotionSectionLayoutProps {}
 
-const PromotionSection = ({}: PromotionSectionProps) => {
-  return <PromotionSectionLayout></PromotionSectionLayout>;
+const PromotionSection = ({ action }: PromotionSectionProps) => {
+  return <PromotionSectionLayout action={action}></PromotionSectionLayout>;
 };
 
 export default PromotionSection;
