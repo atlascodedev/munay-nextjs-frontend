@@ -5,13 +5,12 @@ import Posts from "../components/App/BlogList/Main";
 import Contact from "../components/App/Contact/Main";
 import DefenseSection from "../components/App/DefenseSection/Main";
 import Hero from "../components/App/Hero/Main";
+import Partners from "../components/App/Partners/Main";
 import PromotionSection from "../components/App/PromotionSection/Main";
 import Testimonials from "../components/App/Testimonials/Main";
-import convertToSlug from "../helper/convertToSlug";
 import scrollIntoView from "../helper/scrollIntoView";
 import useLandingPage from "../hooks/useLandingPage/useLandingPage";
 import AppLayout from "../layout/AppLayout";
-import styles from "../styles/Home.module.css";
 
 export default function Home() {
   const [globalLoadingState, setGlobalLoadingState] = React.useState<boolean>(
@@ -68,6 +67,13 @@ export default function Home() {
     {
       label: "Contato",
       component: <Contact loadingFn={() => console.log("loading")} />,
+      ref: null,
+      hidden: false,
+    },
+
+    {
+      label: "Representações",
+      component: <Partners />,
       ref: null,
       hidden: false,
     },
