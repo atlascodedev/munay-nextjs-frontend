@@ -106,7 +106,12 @@ export default function Home({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <AppLayout items={menuList} isGlobalLoading={globalLoadingState}>
+      <AppLayout
+        scrollTopButton
+        hideOnScroll
+        items={menuList}
+        isGlobalLoading={globalLoadingState}
+      >
         {navigableList.map((Component, index) => {
           return <React.Fragment key={index}>{Component}</React.Fragment>;
         })}

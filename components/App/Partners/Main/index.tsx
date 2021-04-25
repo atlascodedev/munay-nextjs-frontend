@@ -16,8 +16,13 @@ const Partners = ({}: PartnersProps) => {
         id="swiper-partner"
         autoplay
         loop
-        slidesPerView={populateList.length >= 3 ? 3 : 1}
+        slidesPerView={1}
         centeredSlides
+        breakpoints={{
+          1024: {
+            slidesPerView: populateList.length >= 3 ? 3 : 1,
+          },
+        }}
       >
         {populateList.map((value, index) => {
           return (

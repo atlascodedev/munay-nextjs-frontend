@@ -1,4 +1,4 @@
-import { SvgIcon } from "@material-ui/core";
+import { Slide, SvgIcon, useScrollTrigger } from "@material-ui/core";
 import { Menu } from "@material-ui/icons";
 import styled, { StyledTheme } from "styled-components";
 import { NavbarProps } from "..";
@@ -86,18 +86,23 @@ interface NavbarLayoutProps extends NavbarProps {}
 const NavbarLayout: React.FC<NavbarLayoutProps> = ({
   children,
   toggleDrawer,
+  hideOnScroll,
 }) => {
+  const scrollTrigger = useScrollTrigger();
+
   return (
-    <Root>
-      <ContainerMain>
-        <BurguerMenuContainer>
-          <SvgIcon onClick={() => toggleDrawer(true)} component={Menu} />
-        </BurguerMenuContainer>
-        <LogoContainer onClick={returnHome}>
-          <img src="/logo.svg" alt="Logotipo - Munay Cartas Contempladas" />
-        </LogoContainer>
-      </ContainerMain>
-    </Root>
+    <Slide appear={false} direction="down" in={hideOnScroll && !scrollTrigger}>
+      <Root>
+        <ContainerMain>
+          <BurguerMenuContainer>
+            <SvgIcon onClick={() => toggleDrawer(true)} component={Menu} />
+          </BurguerMenuContainer>
+          <LogoContainer onClick={returnHome}>
+            <img src="/logo.svg" alt="Logotipo - Munay Cartas Contempladas" />
+          </LogoContainer>
+        </ContainerMain>
+      </Root>
+    </Slide>
   );
 };
 
