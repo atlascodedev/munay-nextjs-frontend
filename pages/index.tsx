@@ -57,7 +57,7 @@ export default function Home({
     {
       label: "Promotional section",
       component: (
-        <PromotionSection action={() => scrollIntoView("Hero", heroRef)} />
+        <PromotionSection action={() => scrollIntoView("top", null)} />
       ),
       ref: promotionalSectionRef,
       hidden: false,

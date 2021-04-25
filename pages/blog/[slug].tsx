@@ -94,7 +94,7 @@ const BlogTemplate = (props: BlogPostType) => {
         <title>{props.blogTitle} - Portal Bens Contemplados</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <AppLayout isGlobalLoading={false} items={[]}>
+      <AppLayout hideOnScroll={false} isGlobalLoading={false} items={[]}>
         <div style={{ marginLeft: "10%", marginRight: "10%" }}>
           <BlogPostInnerDescriptionContainer>
             <BlogPostTitle>{props.blogTitle}</BlogPostTitle>
